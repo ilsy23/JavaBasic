@@ -5,7 +5,7 @@ public class PrintExample {
 	public static void main(String[] args) {
 
 		//자바의 표준 출력 형식은 크게 3가지 입니다.
-		//1. 개행을 포함하지 않는 print()
+		//1. 개행(줄바꿈)을 포함하지 않는 print()
 		//2. 자동으로 개행을 포함해 주는 println()
 		
 		System.out.print("안녕하세요~!");
@@ -15,7 +15,7 @@ public class PrintExample {
 		
 		//3. 형식 지정 표준 출력 함수 printf()
 		//서식 문자를 이용해서 문자열을 완성시킨 후
-		// 서식 문자에 들어갈 값을 지정해서 출력하는 방식
+		//서식 문자에 들어갈 값을 지정해서 출력하는 방식
 		
 		/*
         # 포맷팅 서식 문자 종류 

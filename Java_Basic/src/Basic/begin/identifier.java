@@ -1,6 +1,6 @@
 package Basic.begin;
 
-public class identifier {
+public class Identifier {
 
 	public static void main(String[] args) {
 		
@@ -8,15 +8,15 @@ public class identifier {
 		//그리고, 대/소문자를 철저하게 구분합니다.
 		
 		int age = 35;
-		//int age = 40; (x)
+		//int age = 40; (x) 중복선언 불가
 		int Age = 40;
 		
 		System.out.println(age);
 		System.out.println(Age);
 		
 		//2. 식별지의 이름은 숫자로 지정하거나 숫자로 시작하면 안됩니다.
-		//int 700 = 365;
-		//int 7number = 7; (x)
+		//int 700 = 365;	(x) 숫자
+		//int 7number = 7; 	(x) 숫자로 시작
 		int number7 = 7;
 		int num7ber = 7;
 		int num12345ber = 123;
@@ -34,7 +34,7 @@ public class identifier {
 		//5. 키워드(예약어)는 식별자 이름으로 사용이 불가능합니다.
 		//키워드는 이미 어떠한 내용을 내포하고 있는 지정 문자입니다.
 		//String class = "클래스"; (x)
-		String Class = "클래스"; //권장하지 않습니다.
+		String Class = "클래스"; //권장하지 않습니다. 혼동 우려.
 		String className = "클래스";
 		
 		//6. 한글이나 한자 같은 식별자 이름도 지정이 가능합니다만

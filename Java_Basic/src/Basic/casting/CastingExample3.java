@@ -16,7 +16,10 @@ public class CastingExample3 {
 		System.out.println(charResult);
 		
 		int k = 10;
-		//double d = k / 4.0; -> 2.0 : value 타입이 int라서 값이 2
+		//double d = k / 4; -> 2.0
+		//우변 자료형이 int라서 (k / 4)는 2로 계산된다.
+		//이후 double로 변환되어 2.0
+		//2.5의 값을 얻고 싶으면 우변에 double 자료형을 가진 값을 추가
 		double d = k / 4.0;
 		//또는 double d = (double) k / 4;
 		

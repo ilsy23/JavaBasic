@@ -20,6 +20,8 @@ public class ConOperatorQuiz {
 //		
 //		System.out.println("발생한 난수: " + rn);
 //		System.out.println("3항 연산의 결과: " + result);
+//		**문제의 답을 얻기는 했지만 효율적이지 못함.
+//		**순서를 잘 생각하자.
 		
 		int rn = (int) ((Math.random()*355) + 42);
 		System.out.println("발생한 난수: " + rn);

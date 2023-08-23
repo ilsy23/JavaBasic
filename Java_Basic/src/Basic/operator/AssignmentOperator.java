@@ -14,10 +14,10 @@ public class AssignmentOperator {
 		int a = 5;
 		int b = 3;
 		
-		b =+ 3; // b = +3
+		b =+ 3; // b = +3 ->복합 대입 연산자 아님.
 		System.out.println(b);
 		
-		a += 3; // a = a + 3
+		a += 3; // a = a + 3 : 8
         System.out.println(a);
         
         a -= 4; //4

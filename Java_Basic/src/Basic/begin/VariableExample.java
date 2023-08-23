@@ -18,7 +18,8 @@ public class VariableExample {
 		int age;
 		
 		//변수의 초기화; [변수명 = 값];
-		age = 40; //area = value 값을 저장/할당
+		age = 40; 	//area = value 
+					//area에 value값을 저장/할당
 		
 		//변수의 값 참조(사용)
 		System.out.println(age);

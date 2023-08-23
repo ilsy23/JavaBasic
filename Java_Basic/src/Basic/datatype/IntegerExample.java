@@ -11,7 +11,7 @@ public class IntegerExample {
         long타입으로 인식시켜야 합니다.
         */
 		
-		byte a =127;
+		byte a = 127;
 		short b = 32767;
 		int c = 2147483647;
 		long d = 2147483648L; //소문자 l 가능하지만 1이랑 헷갈림

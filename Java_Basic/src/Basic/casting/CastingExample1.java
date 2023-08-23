@@ -7,7 +7,7 @@ public class CastingExample1 {
 		/*
 		 - 크기가 작은 데이터 타입의 자료를 큰 데이터 타입으로 변환할 때에는
 		 자바 가상 머신 (JVM)이 자동으로 타입을올려서 변환해 줍니다.
-		 (promotion, UpCasting)
+		 (promotion, UpCasting) ㅁ->[]
 		 */
 		
 		byte b = 10;
