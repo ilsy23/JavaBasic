@@ -1,5 +1,7 @@
 package Basic.constate;
 
+import java.util.Scanner;
+
 public class SwitchQuiz01 {
 
 	public static void main(String[] args) {
@@ -12,6 +14,37 @@ public class SwitchQuiz01 {
           결과를 말씀해 주세요.
          */
 		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수를 입력하세요: ");
+		int num1 = sc.nextInt();
+		
+		System.out.print("연산자를 입력하세요: ");
+		String op = sc.next();
+		
+		System.out.print("정수를 입력하세요: ");
+		int num2 = sc.nextInt();
+		
+		switch(op) {
+		
+		case "+": 
+			System.out.println(num1 + num2);
+			break;
+		case "-": 
+			System.out.println(num1 - num2);
+			break;
+		case "*": case "×": 
+			System.out.println(num1 * num2);
+			break;
+		case "/": case "÷": 
+			System.out.println(num1 / num2);
+			break;
+		case "%": 
+			System.out.println(num1 % num2);
+			break;
+		}
+		
+		sc.close();
 		
 	}
 
