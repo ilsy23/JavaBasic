@@ -20,24 +20,27 @@ public class WhileQuiz02 {
 		 */
 		//***** num1 < num2 일 때 ******
 		Scanner sc = new Scanner(System.in);
-		System.out.println("두개의 정수를 입력하세요: ");
+		System.out.println("정수1: ");
 		int num1 = sc.nextInt();
+		System.out.println("정수2: ");
 		int num2 = sc.nextInt();
 		int cum = 0;
 		
 		if(num1 > num2) {
+			int temp =num1;
+			num1 = num2;
+			num2 = temp;
+		}
+		
+//		int start = (num1 > num2 ? num2 : num1);
+//		int end = (num1 > num2 ? num1 : num2);
+		
 			System.out.printf("%d부터 %d까지의 누적합계: ", num1, num2);
 			while(num1 <= num2) {
 				cum += num1;
 				num1++;
 			}
-		}else {
-			System.out.printf("%d부터 %d까지의 누적합계: ", num1, num2);
-			while(num1 >= num2) {
-				cum += num2;
-				num2++;
-			}
-		}
+
 		System.out.print(cum);
 		
 

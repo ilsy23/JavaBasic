@@ -16,15 +16,16 @@ public class IfQuiz01 {
         */
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("2개의 정수를 입력하세요:");
+		System.out.println("정수1: ");
 		int num1 = sc.nextInt();
+		System.out.println("정수2: ");
 		int num2 = sc.nextInt();
 		
 		if(num1 < num2) {
-			System.out.printf("입력받은 수: %d, %d -> %d이 큰 수 입니다.",
+			System.out.printf("입력받은 수: %d, %d -> %d이(가) 큰 수 입니다.",
 					num1, num2, num2);
 		} else if(num1 > num2) {
-			System.out.printf("입력받은 수: %d, %d -> %d이 큰 수 입니다.",
+			System.out.printf("입력받은 수: %d, %d -> %d이(가) 큰 수 입니다.",
 					num1, num2, num1);
 		} else {
 			System.out.printf("입력받은 수: %d, %d -> 같은 수 입니다.",
