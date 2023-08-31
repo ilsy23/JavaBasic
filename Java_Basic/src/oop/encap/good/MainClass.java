@@ -13,17 +13,19 @@ public class MainClass {
 		System.out.printf("내 생일은 %d년 %d월 %d일 입니다.\n"
 				, my.getYear(), my.getMonth(), my.getDay());
 		
-		System.out.println();
+		System.out.println("=====================================");
 		
 		my.setYear(2023);
-		my.setMonth(1);
+		my.setMonth(2);
 		my.setDay(31);
 		
 		my.birthInfo();
-		my.isValidateMonth();
-		my.setDay(31);
-		my.isValidateMonth();
+		
+		System.out.println("=====================================");
+		
+		my.setDay(28);
 		my.birthInfo();
+		
 		
 		
 	}

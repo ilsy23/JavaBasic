@@ -90,35 +90,35 @@ public class MyBirth {
 		//year, month, day 셋 중 단 하나라도 제대로 값이 셋팅되지 않았다면
 		//출력을 해주지 않겠다.
 		if(year == 0 || month == 0 || day == 0 ) {
-			System.out.println("입력을 다시 확인해 주세요.");
+			System.out.println("입력하지 않은 값이 있습니다.\n다시 확인해 주세요.");
 			return;
 		}
+		if(!isValidateMonth()) return;
 		System.out.printf("내 생일은 %d년 %d월 %d일 입니다.\n"
 				, year, month, day);
 	}
 	
-	public void isValidateMonth() {
+	private boolean isValidateMonth() {
 		//각 월에 적합한 일자가 세팅되어 있는지 판별하는 메서드
 		switch(month) {
 		case 2:
 			if(day > 28) {
 				System.out.println("2월은 28일까지 입니다.");
-				break;
+				System.out.println("다시 입력해 주세요.");
+				return false;
 			}else {
-				System.out.println("유효한 입력입니다.");
-				break;
+				return true;
 			}
 		case 4: case 6: case 9: case 11:
 			if(day > 30) {
 				System.out.printf("%d월은 30일까지 입니다.\n", month);
-				break;
+				System.out.println("다시 입력해 주세요.");
+				return false;
 			}else {
-				System.out.println("유효한 입력입니다.");
-				break;
+				return true;
 			}
 		default:
-			System.out.println("유효한 입력입니다.");
-			break;
+			return true;
 		}
 	}
 	
