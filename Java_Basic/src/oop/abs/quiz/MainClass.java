@@ -19,6 +19,11 @@ public class MainClass {
           반지름이 4인 원의 모든 내용을 호출해 보세요.
 		 */
 
+		Rect r = new Rect("길이가 5인 정사각형", 5);
+		Shape c = new Circle("반지름이 4인 원", 4);
+		
+		System.out.printf("%s의 넓이: %.0f\n", r.getName() , r.getArea());
+		System.out.printf("%s의 넓이: %.1f\n", c.getName() , c.getArea());
 
 	}
 

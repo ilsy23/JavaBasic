@@ -15,14 +15,14 @@ public abstract class Shape {
 	
 	private String name;
 	
-	Shape(String name) {
+	public Shape(String name) {
 		this.name = name;
 	}
 	
 	public abstract double getArea();
 	
-	public void getName() {
-		System.out.println("도형 이름: " + this.name);
+	public String getName() {
+		return name;
 	}
 	
 }

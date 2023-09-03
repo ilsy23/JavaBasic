@@ -4,16 +4,16 @@ public class Circle extends Shape {
 
 	int radius;
 	
-	Circle(String name, int r){
+	public Circle(String name, int radius){
 		super(name);
-		this.radius = r;
+		this.radius = radius;
 	}
 	
 
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
-		return 0;
+		double circleArea = this.radius * this.radius * Math.PI;
+		return circleArea;
 	}
 
 	
