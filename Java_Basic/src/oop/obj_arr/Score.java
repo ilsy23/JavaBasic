@@ -21,6 +21,7 @@ public class Score {
 	int scoreTotal;
 	double scoreAvrg;
 	
+	
 	public void scoreInfo(){
 		System.out.printf("***** %s의 성적표 *****\n", name);
 		System.out.printf("국어: %d점\n", scoreKor);
@@ -30,7 +31,7 @@ public class Score {
 		System.out.printf("평균: %.1f점\n", scoreAvrg = scoreTotal / 3.0);
 		
 		System.out.println("--------------------");
-		
 	}
-	
+
+
 }

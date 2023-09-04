@@ -2,29 +2,45 @@ package oop.abs.quiz;
 
 public class Rect extends Shape {
 
-	int length1;
-	int length2;
+	private int width;
+	private int height;
 	
-	Rect(String name, int length){
+	public Rect(String name, int length){
 		super(name);
-		this.length1 = length;
+		this.width = length;
 	}
 	
-	Rect(String name, int length1, int length2){
+	public Rect(String name, int width, int height){
 		super(name);
-		this.length1 = length1;
-		this.length2 = length2;
+		this.width = width;
+		this.height = height;
 	}
 
 	@Override
 	public double getArea() {
 		double rectArea;
-		if(length2 == 0) {
-			rectArea = length1 * length1;
+		if(height == 0) {
+			rectArea = width * width;
 		}else {
-			rectArea = length1 * length2;
+			rectArea = width * height;
 		}
 		return rectArea;
+	}
+	
+	public int getLength1() {
+		return width;
+	}
+	
+	public int getLength2() {
+		return height;
+	}
+	
+	public void setLength1(int length1) {
+		this.width = length1;
+	}
+	
+	public void setLength2(int length2) {
+		this.height = length2;
 	}
 
 }
