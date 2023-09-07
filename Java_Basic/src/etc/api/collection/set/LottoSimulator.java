@@ -12,7 +12,7 @@ public class LottoSimulator {
 	static int prize3 = 0; //3등 당첨 횟수를 세 줄 변수
 	static int prize4 = 0; //4등 당첨 횟수를 세 줄 변수
 	static int prize5 = 0; //5등 당첨 횟수를 세 줄 변수
-	static int failCnt = 0; // 당첨 횟수를 세 줄 변수
+	static int failCnt = 0; // 낙첨 횟수를 세 줄 변수
 
 
 	public static Set<Integer> createLotto() {
@@ -23,7 +23,7 @@ public class LottoSimulator {
           중복이 발생하면 안됩니다.
 		 */   
 		Set<Integer> lotto = new HashSet<>();
-		while(lotto.size() != 6) {
+		while(lotto.size() < 6) {
 			lotto.add(r.nextInt(45) + 1);
 		}
 		return lotto;
@@ -38,19 +38,19 @@ public class LottoSimulator {
           당첨번호들을 피해서 보너스번호 하나만 뽑아 주세요.
           범위는 마찬가지로 1 ~ 45 사이의 난수입니다.
 		 */
-		int bonus = 0;
 
 		while(true) {
-			bonus = r.nextInt(45) + 1;
-			if(!win.contains(bonus)) break;
+			int bonus = r.nextInt(45) + 1;
+			if(!win.contains(bonus)) {
+				return bonus;
+			}
 		}
 
-		return bonus;
 	}
 
 	//당첨 등수를 알려주는 메서드
 	public static void checkLottoNumber
-	(Set<Integer> win, Set<Integer> buy, int bonus) {
+	(Set<Integer> win, Set<Integer> myLotto, int bonus) {
 		/*
          매개값으로 당첨번호집합, 구매한 로또 번호집합, 보너스번호를 받습니다.
          내 로또 번호와 당첨번호를 비교하여
@@ -65,33 +65,30 @@ public class LottoSimulator {
 		 */
 
 		int count = 0;
-		for(int s : buy) {
+		for(int s : myLotto) {
 			if(win.contains(s)) count++;
 		}
+		
 		switch(count) {
 		case 6:
 			prize1++;
-			failCnt++;
 			break;
 		case 5:
-			if(buy.contains(bonus)) {
+			if(myLotto.contains(bonus)) {
 				prize2++;
-				failCnt++;
 				break;
 			}else {
 				prize3++;
-				failCnt++;
 				break;
 			}
 		case 4:
 			prize4++;
-			failCnt++;
 			break;
 		case 3:
 			prize5++;
-			failCnt++;
 			break;
 		default:
+			failCnt++;
 			break;
 		}
 
@@ -109,6 +106,7 @@ public class LottoSimulator {
 		int bonusNum = createBonusNum(winNum);
 		
 		int count = 0;
+		long cost = 0;
 		while(true) {
 			/*
              - 1등이 당첨 될 때까지 반복문을 돌립니다.
@@ -116,23 +114,26 @@ public class LottoSimulator {
               반복문을 종료합니다.
              - 로또를 구매하기 위한 금액도 출력하세요. (long)
 			 */
-			Set<Integer> buyNum = createLotto();
+			Set<Integer> myLotto = createLotto();
 			count++;
-			checkLottoNumber(winNum, buyNum, bonusNum);
+			cost += 1000;
+			checkLottoNumber(winNum, myLotto, bonusNum);
 			
 			if(prize1 == 1) {
 				System.out.println("========= 1등 당첨! =========");
 				System.out.println("당첨 번호:" + winNum + "+" + bonusNum);
-				System.out.println("내 번호:" + buyNum);
-				System.out.println("1등 당첨 횟수: " + prize1 + "회");
+				System.out.println("내 번호:" + myLotto);
 				System.out.println("2등 당첨 횟수: " + prize2 + "회");
 				System.out.println("3등 당첨 횟수: " + prize3 + "회");
 				System.out.println("4등 당첨 횟수: " + prize4 + "회");
 				System.out.println("5등 당첨 횟수: " + prize5 + "회");
+				System.out.println("낙첨 횟수: " + failCnt + "회");
 				System.out.println("---------------------------");
-				System.out.println("총 누적 당첨 횟수: " + failCnt + "회");
-				System.out.println("총 로또 구매 비용: " + (long)count * 1000 + "원");
+				System.out.println("로또 구매 횟수: " + count + "회");
+				System.out.println("총 로또 구매 비용: " + cost + "원");
 				break;
+			}else {
+				System.out.println("로또 " + count + "장 째 구매 중...");
 			}
 			
 			
