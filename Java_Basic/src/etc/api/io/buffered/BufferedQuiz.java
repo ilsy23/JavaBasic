@@ -1,7 +1,10 @@
 package etc.api.io.buffered;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -25,6 +28,7 @@ public class BufferedQuiz {
 		          파일을 읽어서 콘솔에 출력해 보세요
 		 */
 		
+		//폴더 생성
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String folderName = LocalDate.now().format(dtf) + "file";
 		
@@ -36,10 +40,13 @@ public class BufferedQuiz {
 			System.out.println("이미 존재하는 폴더입니다.");
 		}
 		
+		//파일명 입력
 		Scanner sc = new Scanner(System.in);
 		System.out.print("파일명: ");
 		String fileName = sc.next();
-		//while문-그만 //변수 선언 //입력값 누적 연결(줄개행 포함)
+		sc.nextLine();
+		
+		//파일 작성
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		
@@ -47,7 +54,8 @@ public class BufferedQuiz {
 			try {
 				fw = new FileWriter("C:/Mywork/" + folderName + "/" + fileName + ".txt" );
 				bw = new BufferedWriter(fw);
-				String paragraph = null;
+				
+				String paragraph = "";
 				while(true) {
 					System.out.print("문장 입력: ");
 					String str = sc.nextLine();
@@ -58,6 +66,7 @@ public class BufferedQuiz {
 					}
 					paragraph += (str + "\r\n");
 				}
+				
 				bw.write(paragraph);
 				System.out.println("파일 출력 완료!");
 			} catch (IOException e) {
@@ -72,8 +81,29 @@ public class BufferedQuiz {
 				}
 			}
 
-		//파일 읽어서 콘솔 출력
-
+		//파일 출력
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		try {
+			fr = new FileReader("C:/Mywork/" + folderName + "/" + fileName + ".txt");
+			br = new BufferedReader(fr);
+			
+			String str;
+			while((str = br.readLine()) != null) {
+				System.out.println(str);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 	}
 
